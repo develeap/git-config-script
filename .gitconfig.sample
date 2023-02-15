@@ -1,0 +1,10 @@
+[init]
+	defaultBranch = main
+[user]
+	name = username 
+	email = username@@users.noreply.github.com
+	signingkey = ~/.ssh/id_ed25519
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
