@@ -12,7 +12,7 @@ This script does the following:
   - Generates a new SSH key and configures it to be used as the global Signing Key for git.
   - Shows instructions for adding the SSH Key to GitHub and other git providers (GitLab, Codeberg, Gitea, Forgejo and Gogs).
 
-After running this script, your `~/.gitconfig` file should look similar to [,gitconfig.sample](https://github.com/develeap/git-config-script/blob/main/.gitconfig.sample).
+After running this script, your `~/.gitconfig` file should look similar to [.gitconfig.sample](https://github.com/develeap/git-config-script/blob/main/.gitconfig.sample).
 
 ## FAQ - Frequently Asked Questions
 ### How do I run this script?
