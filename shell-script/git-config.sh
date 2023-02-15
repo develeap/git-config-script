@@ -8,15 +8,15 @@ main() {
     USER_EMAIL=""   # Must be a valid email address (can use noreply)
     SSH_KEY_NAME="" # Path: "${HOME}/.ssh/${SSH_KEY_NAME}"
 
-    choose_values "$@" # optionally disable this function and instead set the values above manually
+    choose_values   # optionally disable this function and instead set the values above manually
 
-    configure_values "$@"
-    ssh_key_message "$@"
+    configure_values
+    ssh_key_message
 }
 
 configure_values() {
     printf "\n"
-    new_ssh_key "$@"
+    new_ssh_key
 
     git config --global init.defaultBranch "${DEFAULT_BRANCH}"
     git config --global user.name "${USER_NAME}"
@@ -112,6 +112,6 @@ choose_values() {
     done
 }
 
-main "$@"
+main
 
 exit 0
