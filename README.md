@@ -17,7 +17,7 @@ After running this script, your `~/.gitconfig` file should look similar to [,git
 ## FAQ - Frequently Asked Questions
 ### How do I run this script?
 Ths script can be run with the following command:  
-`/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/develeap/git-config-script/main/git-config.sh)"`  
+`/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/develeap/git-config-script/main/shell-script/git-config.sh)"`  
 Make sure to run it on your own user since it needs access to your HOME folder. Do not run this script as root/sudo/doas.
 
 ### Which platforms are supported?
