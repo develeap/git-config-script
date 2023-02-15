@@ -1,0 +1,71 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: true
+
+  vars_files:
+    - external_vars.yml
+
+  vars:
+    current_user: "{{ lookup('env','USER') }}"
+  
+  tasks:
+    - name: Debug
+      ansible.builtin.debug:
+        msg: System {{ ssh_key.name }} has passphrase {{ ssh_key.passphrase }}
+
+    - name: Install dependencies
+      when: install_dependencies == true
+      block:
+      - name: Install package dependencies
+        become: true
+        ansible.builtin.package:
+          name: "{{ item }}"
+          state: latest
+        with_items:
+          - git
+          - openssh
+          - python3-pip
+
+      - name: Install bcrypt pip module
+        ansible.builtin.pip:
+          name: bcrypt
+          state: latest
+
+    - name: Generate SSH key
+      become_user: "{{ current_user }}"
+      community.crypto.openssh_keypair:
+        path: "~/.ssh/{{ ssh_key.name }}"
+        passphrase: "{{ ssh_key.passphrase }}"
+        type: ed25519
+        state: present
+        force: false
+        regenerate: "{{ ssh_key.regenerate }}"
+
+    - name: Add global settings to ~/.gitconfig
+      block:
+        - name: Set default branch name
+          community.general.git_config:
+            name: init.defaultBranch
+            scope: global
+            value: "{{ git_config.init.defaultBranch }}"
+        - name: Set global user.name
+          community.general.git_config:
+            name: user.name
+            scope: global
+            value: "{{ git_config.user.name }}"
+        - name: Set global user.email
+          community.general.git_config:
+            name: user.email
+            scope: global
+            value: "{{ git_config.user.email }}"
+        - name: Set signing key format to SSH
+          community.general.git_config:
+            name: gpg.format
+            scope: global
+            value: ssh
+        - name: Sign commits by default
+          community.general.git_config:
+            name: commit.gpgsign
+            scope: global
+            value: true

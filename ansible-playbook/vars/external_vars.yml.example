@@ -1,0 +1,12 @@
+---
+install_dependencies: false
+
+ssh_key:
+  name: id_ed25519
+  passphrase: super_secret_password
+  regenerate: partial_idempotence  # community.crypto.openssh_keypair regenerate
+
+git_config:
+  init.defaultBranch: main
+  user.name: username
+  user.email: username@users.noreply.github.com

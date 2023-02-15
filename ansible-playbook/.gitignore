@@ -1,0 +1,5 @@
+# ignore
+vars/*
+
+# don't ignore
+!vars/external_vars.yml.example
