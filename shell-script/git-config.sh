@@ -42,8 +42,6 @@ ssh_key_message() {
     if [ "$answer" != "${answer#[Yy]}" ]; then
         echo "SSH public key \"${HOME}/.ssh/${SSH_KEY_NAME}.pub\" value is:"
         cat "${HOME}/.ssh/${SSH_KEY_NAME}.pub"
-    else
-        true
     fi
 
     printf "\n"
