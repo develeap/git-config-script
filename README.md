@@ -30,7 +30,7 @@ This is understandable. I encourage every user to understand what *any* shell sc
 It is true that you can achieve the same results just by running a few commands. All this script really does is generate an SSH key and edits your `~/.gitconfig`. However, after doing this process many times across different git installs, I decided to automate it with this script.
 
 
-### Resources
+## Resources
 To read more about what this script does and related topics, have a look at these resources:
   - Git Documentation
     + [git-config](https://git-scm.com/docs/git-config)
