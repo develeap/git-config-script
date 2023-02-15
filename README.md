@@ -1,5 +1,8 @@
 # git-config-script
 
+[![License](https://img.shields.io/badge/license-Apache--2.0-green)](https://opensource.org/license/apache2-0/)
+[![ShellCheck](https://github.com/develeap/git-config-script/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/develeap/git-config-script/actions/workflows/shellcheck.yml)
+
 This script helps setup git for a new install. When installing git, you get several warnings about settings you need to configure, including setting a username, an email address and a default branch name. To avoid these warnings, it is needed to set global settings that would be used by default for each repo. In addition, it is recommended to set a GPG or SSH key that will be used for signing commits. I wrote a shell script to help with this process.
 
 This script does the following:
