@@ -10,10 +10,6 @@
     current_user: "{{ lookup('env','USER') }}"
   
   tasks:
-    - name: Debug
-      ansible.builtin.debug:
-        msg: System {{ ssh_key.name }} has passphrase {{ ssh_key.passphrase }}
-
     - name: Install dependencies
       when: install_dependencies == true
       block:
@@ -26,7 +22,6 @@
           - git
           - openssh
           - python3-pip
-
       - name: Install bcrypt pip module
         ansible.builtin.pip:
           name: bcrypt
